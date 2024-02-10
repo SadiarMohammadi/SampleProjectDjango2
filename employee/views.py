@@ -36,3 +36,9 @@ def update(request, id):
         form.save()
         return redirect("/show")
     return render(request, "employee/edit.html", {'employee': employee})
+
+
+def destroy(request,id):
+    employee = Employee.objects.get(id=id)
+    employee.delete()
+    return redirect("/show")
